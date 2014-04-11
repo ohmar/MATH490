@@ -46,7 +46,7 @@ da/appendix.html. \\
 \textbf{a.} Using $x =$ weight and $Y =$ number of satellites, fit a Poisson loglinear
 model. Report the prediction equation. \\
 
-The prediction equation is $log(\hat{\mu}) = -0.428 + 0.589 \text{( weight )}$.
+The prediction equation is $log(\hat{\mu}) = -0.428 + 0.589x$.
 \\
 
 \textbf{b.} Estimate the mean of $Y$ for female crabs of average weight $2.44$kg. \\
@@ -87,17 +87,19 @@ e binomial loglinear model. \\
 \textbf{a.} Report the prediction equation and the estimate of the dispersion parameter a
 nd its $SE$. Is there evidence that this model gives a better fit than the Poisson model?
 \\
-
-
-
+The prediction equation is $log(\hat{\mu})= -.8647 + .7603(x)$. The estimate for the 
+dispersion parameter is $.931$ and the standard error is $.168$. This suggests that there
+is strong evidence for overdispersion. When compared to the Poisson model, this negative
+binomial model provides a better fit. \\
 
 \textbf{b.} Constuct a 95 percent confidence interval for $\beta$. Compare it with the on
 e in (c) in the previous exercise. Interpret, and explain why the interval is wider with 
 the negative binomial model. \\
 
-
-
-
+The 95 percent confidence interval for this model is $(0.4207, 1.1136)$ The 95 percent 
+confidence interval for the Poisson model is $(.462, .717)$. The interval is wider with 
+the negative binomial model because it takes into account the overdispersion. The Poisson
+model CI is too narrow because it does not take into account the overdispersion. \\
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 3.18
