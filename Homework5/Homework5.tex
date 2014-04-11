@@ -1,0 +1,90 @@
+\documentclass[paper=letter, fontsize=11pt]{scrartcl} % Letter paper and 11pt font size
+
+\usepackage{amstext, amsmath, amssymb, graphicx}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{San Francisco State University} \\ [25pt]
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge MATH 490 Assignment 5  \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Omar Sandoval}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3.13
+%----------------------------------------------------------------------------------------
+\textbf{3.13} Access the horseshoe crab data of Table 3.2 at www.stat.ufl.edu/~aa/intro-c
+da/appendix.html. \\
+\textbf{a.} Using $x=$ weight and $Y =$ number of satellites, fit a Poisson loglinear
+model. Report the prediction equation. \\
+\textbf{b.} Estimate the mean of $Y$ for female crabs of average weight $2.44$kg. \\
+\textbf{c.} Use $\hat{\beta}$ to describe the weight effect. Construct a $95$ percent conf
+idence interval for $\beta$ and for the multiplicative effect of a 1 kg increase. \\
+\textbf{d.} Conduct a Wald test of the hypothesis that the mean of $Y$ is independent of 
+weight. Interpret. \\
+\textbf{e.} Conduct a likelihood-ratio test about the weight effect. Interpret. \\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3.14
+%----------------------------------------------------------------------------------------
+\textbf{3.14} Refer to the previous exercise. Allow overdispersion by fitting the negativ
+e binomial loglinear model. \\
+\textbf{a.} Report the prediction equation and the estimate of the dispersion parameter a
+nd its $SE$. Is there evidence that this model gives a better fit than the Poisson model?
+\\
+\textbf{b.} Constuct a 95 percent confidence interval for $\beta$. Compare it with the on
+e in (c) in the previous exercise. Interpret, and explain why the interval is wider with 
+the negative binomial model. \\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3.18
+%----------------------------------------------------------------------------------------
+\textbf{3.18} Table 3.8 lists total attendance (in thousands) and the total number of arr
+ests in a season for soccer teams in the Second Division of the British football league.
+\\
+\textbf{a.} Let $Y$ denote the number of arrests for a team with total attendance $t$. Ex
+plain why the model $E(Y) = \mu t$ might be plausible. Show that it has alternative form 
+$log[E(Y)/t] = \alpha$, where $\alpha = log(\mu)$, and express this model with an offset 
+term. \\
+\textbf{b.} Assuming Poisson sampling, fit the model. Report and interpret $\hat{\mu}$.\\
+\textbf{c.} Plot arrests against attendance, and overlay the prediction equation. Use res
+iduals to identify teams that had a much larger or smaller than expected number of arrest
+s. \\
+\textbf{d.} Now fit the model $log[E(Y)/t] = \alpha$ by assuming a negative binomial dist
+ribution. Compare $\hat{\alpha}$ and its \textit{SE} to what you got in (a). Base on this 
+information and the estimate of the dispersion parameter and its \textit{SE}, does the Po
+isson assumption seem appropriate? \\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3.20
+%----------------------------------------------------------------------------------------
+\textbf{3.20} \textit{Do not do.}
+\end{document}
