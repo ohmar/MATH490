@@ -43,14 +43,41 @@
 %----------------------------------------------------------------------------------------
 \textbf{3.13} Access the horseshoe crab data of Table 3.2 at www.stat.ufl.edu/~aa/intro-c
 da/appendix.html. \\
-\textbf{a.} Using $x=$ weight and $Y =$ number of satellites, fit a Poisson loglinear
+\textbf{a.} Using $x =$ weight and $Y =$ number of satellites, fit a Poisson loglinear
 model. Report the prediction equation. \\
+
+The prediction equation is $log(\hat{\mu}) = -0.428 + 0.589 \text{( weight )}$.
+\\
+
 \textbf{b.} Estimate the mean of $Y$ for female crabs of average weight $2.44$kg. \\
+
+The mean of $Y$ for female crabs of average weight $2.44$ is $2.74$. \\
+We find that by calculating $\hat{\mu} = e^{-.4284+.5893(2.44)}$
+\\
+
 \textbf{c.} Use $\hat{\beta}$ to describe the weight effect. Construct a $95$ percent conf
 idence interval for $\beta$ and for the multiplicative effect of a 1 kg increase. \\
+
+$\hat{\beta} = .5893$. Since it is positive, it tells us that there is an increase 
+of satellites when there is an increase of weight. \\
+
+The $95$ percent confidence interval calculates to $(0.462, 0.717)$ \\
+We can calculate it manually in the following way, $0.589 \pm 1.96(0.0650)$
+The confidence interval for the multiplicative effect is $(1.59, 2.05)$ \\
+
 \textbf{d.} Conduct a Wald test of the hypothesis that the mean of $Y$ is independent of 
 weight. Interpret. \\
+
+To test that $Y$ is independent of $x$, we can use the hypothesis $H_0 : \beta = 0$.
+
+We use the following equation, $Z^2 = (\hat{\beta}/SE)^2 = (.5893/.0650)^2 = 82.2$.
+This tells us that there is extremeley strong evidence that weight will have a positive 
+effect. \\
+
 \textbf{e.} Conduct a likelihood-ratio test about the weight effect. Interpret. \\
+
+The likelihood ratio test statistic is 71.925 with 1 degree of freedom. This tells us 
+there is very strong evidence that weight has a positive effect. 
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 3.14
@@ -60,9 +87,17 @@ e binomial loglinear model. \\
 \textbf{a.} Report the prediction equation and the estimate of the dispersion parameter a
 nd its $SE$. Is there evidence that this model gives a better fit than the Poisson model?
 \\
+
+
+
+
 \textbf{b.} Constuct a 95 percent confidence interval for $\beta$. Compare it with the on
 e in (c) in the previous exercise. Interpret, and explain why the interval is wider with 
 the negative binomial model. \\
+
+
+
+
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 3.18
