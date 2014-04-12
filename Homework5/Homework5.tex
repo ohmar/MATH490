@@ -77,13 +77,16 @@ effect. \\
 \textbf{e.} Conduct a likelihood-ratio test about the weight effect. Interpret. \\
 
 The likelihood ratio test statistic is 71.925 with 1 degree of freedom. This tells us 
-there is very strong evidence that weight has a positive effect. 
+there is very strong evidence that weight has a positive effect.\\
+\\
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 3.14
 %----------------------------------------------------------------------------------------
 \textbf{3.14} Refer to the previous exercise. Allow overdispersion by fitting the negativ
 e binomial loglinear model. \\
+\\
+
 \textbf{a.} Report the prediction equation and the estimate of the dispersion parameter a
 nd its $SE$. Is there evidence that this model gives a better fit than the Poisson model?
 \\
@@ -100,6 +103,7 @@ The 95 percent confidence interval for this model is $(0.4207, 1.1136)$ The 95 p
 confidence interval for the Poisson model is $(.462, .717)$. The interval is wider with 
 the negative binomial model because it takes into account the overdispersion. The Poisson
 model CI is too narrow because it does not take into account the overdispersion. \\
+\\
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 3.18
@@ -107,14 +111,34 @@ model CI is too narrow because it does not take into account the overdispersion.
 \textbf{3.18} Table 3.8 lists total attendance (in thousands) and the total number of arr
 ests in a season for soccer teams in the Second Division of the British football league.
 \\
-\textbf{a.} Let $Y$ denote the number of arrests for a team with total attendance $t$. Ex
-plain why the model $E(Y) = \mu t$ might be plausible. Show that it has alternative form 
+
+\textbf{a.} Let $Y$ denote the number of arrests for a team with total attendance $t$. 
+Explain why the model $E(Y) = \mu t$ might be plausible. Show that it has alternative form 
 $log[E(Y)/t] = \alpha$, where $\alpha = log(\mu)$, and express this model with an offset 
 term. \\
+
+If $E(Y) = \mu t$ were the case, then that would mean that the attendance count is prop
+ortional to the number of people arrested. \\ 
+
 \textbf{b.} Assuming Poisson sampling, fit the model. Report and interpret $\hat{\mu}$.\\
+
+Model fit here is $log[\hat{E}(Y)/t] = -.909$ with $SE = .022$ So, $\hat{\mu} = e^{-.909}
+= .4029$ We can interpret this as saying that there are 0 arrests when attendance is zero
+and about .4 arrests when attendance is one thousand, thus, for every thousand, arrests
+ go up by about $0.4029$. \\
+
 \textbf{c.} Plot arrests against attendance, and overlay the prediction equation. Use res
 iduals to identify teams that had a much larger or smaller than expected number of arrest
 s. \\
+
+\begin{center}
+    \includegraphics[scale=0.8]{plot318c.png}
+\end{center}
+
+I would say that the soccer teams Aston Villa, Birmingham, Bournemouth, Bradford City, 
+and Shewsbury had the larger number of arrests, and Hull City, Millwal, Manchester City,
+ Plymouth, and Stoke City has the smallest number of arrests. \\
+
 \textbf{d.} Now fit the model $log[E(Y)/t] = \alpha$ by assuming a negative binomial dist
 ribution. Compare $\hat{\alpha}$ and its \textit{SE} to what you got in (a). Base on this 
 information and the estimate of the dispersion parameter and its \textit{SE}, does the Po
@@ -124,4 +148,5 @@ isson assumption seem appropriate? \\
 %	PROBLEM 3.20
 %----------------------------------------------------------------------------------------
 \textbf{3.20} \textit{Do not do.}
+
 \end{document}
