@@ -1,0 +1,208 @@
+\documentclass[paper=letter, fontsize=11pt]{scrartcl} % Letter paper and 11pt font size
+
+\usepackage{amstext, amsmath, amssymb}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\setlength\parindent{0pt}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{San Francisco State University} \\ [25pt]
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge MATH 490 Assignment 6  \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Omar Sandoval}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.1
+%----------------------------------------------------------------------------------------
+\textbf{4.1} A study used logistic regression to determine characteristics associated
+with $Y =$ whether a cancer patient achieved remission (1 = yes). The most important 
+explanatory variable was labeling index $(LI)$ that measures proliferative activity of 
+cells after a patient receives an injection of tritiated thymidine. It represents the 
+percentage of cells that are ``labeled.'' Table 4.8 shows the grouped data. Software 
+reports Table 4.9 for a logistic regression model using $LI$ to predict $\pi = (P(Y=1)$.
+\\
+
+\textbf{a.} Show how software obtained $\hat{\pi} = 0.068$ when $LI = 8$. \\
+Software gives the following prediction equation, 
+$\hat{\pi} = \dfrac{e^{-3.771+0.1449(8)}}{1+e^{-3.7771+0.1449(8)}} = 0.068$ 
+\\
+
+\textbf{b.} Show that $\hat{\pi} = .50$ when $LI = 26.0$. \\
+$\hat{\pi} = .50$ when $\dfrac{-\hat{\alpha}}{\hat{\beta}} = \dfrac{3.7771}{.1449} = 26$
+\\
+
+\textbf{c.} Show that the rate of change in $\hat{\pi}$ is 0.009 when $LI = 8$ and is 
+0.036 when LI = 26.\\
+When $LI = 8$, $\hat{\pi} = 0.68$, rate of change is then 
+$\hat{\beta}\hat{\pi}(1-\hat{\pi}) = 0.1449(0.068)(0.932) = 0.009$.
+\\
+
+\textbf{d.} The lower quartile and upper quartile for LI are 14 and 28. Show that 
+$\hat{\pi}$ increases by 0.42, from 0.15 to 0.57, between those values. \\
+When $LI = 14$, $\hat{\pi} = e^{-3.7771 + 0.1449(14)} / [1 + e^{-3.7771 + 0.1449(14)}]
+= .15$ \\
+
+When $LI = 28$, $\hat{\pi} = e^{-3.7771 + 0.1449(28)} / [1 + e^{-3.7771 + 0.1449(28)}]
+= .57$ \\
+
+
+\textbf{e.} When $LI$ increases by 1, show the estimated odds of remission multiply by
+1.16. \\
+Estimated odds of remission, $e^{\hat{\beta}} = e^{.1449} = 1.16$
+
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.2
+%----------------------------------------------------------------------------------------
+\textbf{4.2} Refer to the previous exercise. Using information from Table 4.9: \\
+
+\textbf{a.} Conduct a Wald test for the $LI$ effect. Interpret. \\
+Wald test $= \dfrac{0.1449}{.0593}^2 = 5.97$. Degrees of freedom = 1, P-value 
+$= .0146$\\
+$H_1: \hat{\beta} \not=0.$
+We can say that the data is not significant enough.
+\\
+
+\textbf{b.} Construct a Wald confidence interval for the odds ratio corresponsing to a 
+1-unit increase in $LI$. Interpret. \\
+95 percent Wald confidence interval, $(.1449-1.96(.0593), .1449-1.96(.0593))$,
+(1.03, 1.30), odds of remission at $LI = x + 1$ can fall between 1.03 and 1.30 
+multiplied by the odds of remission at $LI = x$ \\
+
+\textbf{c.} Conduct a likelihood-ratio test for the $LI$ effect. Interpret. \\
+Likelihood-ratio test, $34.37 - 26.07 = 8.30$ with degree of freedom 1 and P-value = 0.004 \\
+
+\textbf{d.} Construct the likelihood-ratio confidence interval for the odds ratio. 
+Interpret. \\
+Likelihood-ratio confidence interval gives us, (1.04, 1.33). Thus, odds of remission 
+at $LI = x+1$ can fall between 1.04 and 1.33 multiplied by the odds of remission at 
+$LI = x$.
+\\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.4
+%----------------------------------------------------------------------------------------
+\textbf{4.4} Consider the snoring and heart disease data of Table 3.1 in Section 3.2.2. 
+With scores ${0,2,4,5}$ for snoring levels, the logistic regression ML fit is 
+$logit(\hat{\pi}) = -3.866 + .397x$ \\
+
+\textbf{a.} Interpret the sign of the estimated effect of $x$. \\
+As the level of snoring increases, the estimated probability of a heart attack also
+increases.
+
+\textbf{b.} Estimate the probabilities of heart disease at snoring levels 0 and 5. \\
+
+\textbf{c.} Describe the estimated effect of snoring on the odds of heart disease. \\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.11
+%----------------------------------------------------------------------------------------
+\textbf{11.} Moritz and Satariano (J. clin. Epidomiol., \textbf{46}: 443-454, 1993) used
+logistic regression to predict whether the stage of breast cancer at diagnosis was 
+advanced or local for a sample of 444 middle-ages and elderly women. A table referring to
+a particular set of demographic factors reported the estimated odds ratio for the effect 
+of living arrangement (three categories) as 2.02 for spouse vs alone and 1.71 for others
+vs. alone; it reported the effect of income (three categories) as 0.72 for 
+$10,000-24999 vs < 10,000$ and 0.41 for $25,000+ vs < 10,000$. Estimate the odds ratio 
+for the thirtd pair of categories for each factor. \\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.14
+%----------------------------------------------------------------------------------------
+\textbf{14.} Refer to the results that Table 4.5 shoes for model (4.5) fitted to the data
+from the AZT and AIDS study in Table 4.4. \\
+
+\textbf{a.} For black veterans without immediate AZT use, use the prediction equation to 
+estimate the probability of AIDS symptomps. \\
+
+\textbf{b.} Construct a 95 percent confidence interval for the conditional odds ratio 
+between AZT use and the development of symptoms. \\
+
+\textbf{c.} Describe and test for the effect of race in this model. \\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.16
+%----------------------------------------------------------------------------------------
+\textbf{4.16} Table 4.13 shows the result of cross classifying a sample of people from 
+the MBTI Step II National Sample (collected and compiled by CPP, Inc.) on whether they 
+report drinking alcohol frequently (1 = yes, 0 = no) and on the four binary scales of 
+the Myers-Briggs personality test: Extroversion/Introversion (E/I), Sensing/iNtuitive 
+(S/N), Thinking/Feeling (T/F) and Judging/Perceiving (J/P). The 16 predictor combinations
+correspond to the 16 personality types: ESTJ, ESTP, ESFJ, ESFP, ENTJ, ENTP, ENFJ, ENFP,
+ISTJ, ISTP, ISFJ, ISFP, INTJ, INTP, INFJ, INFP. \\
+
+\textbf{a.} Fit a model using the four scales as predictor of $\pi =$ the probability of
+drinking alcohol frequently. Report the prediction equation, specifying how you set up 
+the indicator variables. \\
+
+\textbf{b.} Find $\hat{\mu}$ for someone of personality type ESTJ. \\
+
+\textbf{c.} Based on the model parameter estimates, explain why the personality type 
+with the highest $\hat{mu}$ is ENTP. \\
+
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.17
+%----------------------------------------------------------------------------------------
+\textbf{4.17} Refer to the previous exercise. Table 4.14 shows the fit of the model with only E/I and T/F as predictors. \\
+
+\textbf{a.} Find $\hat{\mu}$ for someone of personality type introverted and feeling. \\
+
+\textbf{b.} Report and interpret the estimated conditional odds ratio between E/I and
+the response. \\
+
+\textbf{c.} Use the limits reported to construct a 95 percent likelihood-ratio confidence
+interval for the conditional odds ratio between E/I and the response. Interpre. \\
+
+\textbf{d.} The estimates shown use E for the first category of the E/I scale. Suppose
+you instead use I for the first category. Then, report the estimated conditional odds ratio and the 95 percent likelihood-ratio confidence interval. Interpret. \\
+
+\textbf{e.} Show steps of a test of whether E/I has an effect of the response,
+controlling for T/F. Indicate whether your test is a Wald or a likelihood-ratio test. \\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.24
+%----------------------------------------------------------------------------------------
+\textbf{4.24} Table 4.19 shows results of a study about Y = whether a patient having 
+surgery with general anesthesia experienced a sore throat on waking (1 = yes) as a 
+function of D = durationa of the surgery (in minutes) and T = type of device used to
+secure the airway (0 = laryngeal mask airway, 1 = tracheal tube). \\
+
+\textbf{a.} Fit a main effects model using these predictors. Interpret parameter 
+estimates. \\
+
+\textbf{b.} Conduct inference about the D effect in (a). \\
+
+\textbf{c.} Fit a model permitting interaction. Report the predictio equation for the 
+effect of D when (i)T = 1, (ii) T = 0. Interpret. \\
+
+\textbf{d.} Conduct inference about whether you need the interaction term in (c).
+
+\end{document}
