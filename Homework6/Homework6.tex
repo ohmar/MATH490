@@ -116,34 +116,64 @@ $logit(\hat{\pi}) = -3.866 + .397x$ \\
 \textbf{a.} Interpret the sign of the estimated effect of $x$. \\
 As the level of snoring increases, the estimated probability of a heart attack also
 increases.
+\\
 
 \textbf{b.} Estimate the probabilities of heart disease at snoring levels 0 and 5. \\
+$\hat{\pi}(0) = \dfrac{e^{-3.866+.397(0)}}{1+e^{-3.866+.397(0)}}$ \\
+At snoring level 0, estimated probability $= .0205$ \\
+$\hat{\pi}(5) = \dfrac{e^{-3.866+0.397(5)}}{1+e^{-3.866+0.397(5)}}$ \\
+At snoring level 5, estimated probability $= .1323$ 
+\\
 
 \textbf{c.} Describe the estimated effect of snoring on the odds of heart disease. \\
+Odds is a linear regression model given by $\frac{\hat{\pi}(x)}{1-\hat{\pi}(x)}
+= e^{\alpha + \beta x}$
+The probability of having a heart disease is multiplicative, $e^{-3.866+0.397x}$ 
+times the probabiliy of not having a heart disease for all levels of snoring, \{0,2,4,5\}
+Since it is multiplicative, the can say that the probability of having a heart disese 
+increases as snoring level increases.
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 4.11
 %----------------------------------------------------------------------------------------
-\textbf{11.} Moritz and Satariano (J. clin. Epidomiol., \textbf{46}: 443-454, 1993) used
+\textbf{4.11} Moritz and Satariano (J. clin. Epidomiol., \textbf{46}: 443-454, 1993) used
 logistic regression to predict whether the stage of breast cancer at diagnosis was 
 advanced or local for a sample of 444 middle-ages and elderly women. A table referring to
 a particular set of demographic factors reported the estimated odds ratio for the effect 
 of living arrangement (three categories) as 2.02 for spouse vs alone and 1.71 for others
 vs. alone; it reported the effect of income (three categories) as 0.72 for 
 $10,000-24999 vs < 10,000$ and 0.41 for $25,000+ vs < 10,000$. Estimate the odds ratio 
-for the thirtd pair of categories for each factor. \\
+for the third pair of categories for each factor. \\
+
+Odds ratio for Spouse vs. Others: $\dfrac{2.02}{1.71} = 1.18$ \\
+Odds ratio for $\$10k - \$24.999k \text{ vs. } \$25k = \dfrac{.72}{.41}$
+\\
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 4.14
 %----------------------------------------------------------------------------------------
-\textbf{14.} Refer to the results that Table 4.5 shoes for model (4.5) fitted to the data
+\textbf{4.14} Refer to the results that Table 4.5 shows for model (4.5) fitted to the data
 from the AZT and AIDS study in Table 4.4. \\
 
 \textbf{a.} For black veterans without immediate AZT use, use the prediction equation to 
 estimate the probability of AIDS symptomps. \\
+$\pi = Observations(1,2,3,4)e^{\hat{\beta}}/1+e^{\hat{\beta}} = 0.2547$
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+Observation & AZT & Race & $\pi$   \\ \hline
+1           & 1   & 1    & 0.14962 \\ \hline
+2           & 0   & 1    & .26540  \\ \hline
+3           & 1   & 0    & .14270  \\ \hline
+4           & 0   & 0    & .25472  \\ \hline
+\end{tabular}
+\\
+\\
 
 \textbf{b.} Construct a 95 percent confidence interval for the conditional odds ratio 
 between AZT use and the development of symptoms. \\
+95\% Confidence Interval; $e^{\beta_1(Z_{\alpha/2}SD(\beta_1)} = (.2371, 1.000)$
+\\
 
 \textbf{c.} Describe and test for the effect of race in this model. \\
 
@@ -162,11 +192,17 @@ ISTJ, ISTP, ISFJ, ISFP, INTJ, INTP, INFJ, INFP. \\
 drinking alcohol frequently. Report the prediction equation, specifying how you set up 
 the indicator variables. \\
 
+The prediction equation is $logit(\hat{\pi}) = -2.467+.555 EI - .0429 SN + .687 TF - .202 JP$
+\\
+My indicator variables were 1 for E, S, T and J; 0 for I, N, F, P. \\
+
 \textbf{b.} Find $\hat{\mu}$ for someone of personality type ESTJ. \\
+$\hat{\mu}$ for someone of personality type ESTJ $= e^{-1.86}/(1+e^{-1.86}) = 0.134$
 
 \textbf{c.} Based on the model parameter estimates, explain why the personality type 
 with the highest $\hat{mu}$ is ENTP. \\
-
+$\hat{\mu}$ for someone of personality type ENTP $=e^{-2.47+0.55+0.69}/(1+e^{-2.47+.55+.69}) = .23$
+\\
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 4.17
@@ -174,18 +210,35 @@ with the highest $\hat{mu}$ is ENTP. \\
 \textbf{4.17} Refer to the previous exercise. Table 4.14 shows the fit of the model with only E/I and T/F as predictors. \\
 
 \textbf{a.} Find $\hat{\mu}$ for someone of personality type introverted and feeling. \\
+$\hat{\mu}$ for someone of personality type introverted and feeling 
+$= e^{-2.83}/(1+e^{-2.83}) = 0.056$
+\\
 
 \textbf{b.} Report and interpret the estimated conditional odds ratio between E/I and
 the response. \\
+Conditional odds ratio, $e^{0.5805} = 1.79$.
+The estimated odds that an extroverted person drinks frequently is 1.79 times the estimated odds
+an introverted person drinks frequently.
+\\
 
 \textbf{c.} Use the limits reported to construct a 95 percent likelihood-ratio confidence
-interval for the conditional odds ratio between E/I and the response. Interpre. \\
+interval for the conditional odds ratio between E/I and the response. Interpret. \\
+Using the given limits, we get the following CI, $(e^{.159}, e^{.008}) = (1.17,2.74)$
+
 
 \textbf{d.} The estimates shown use E for the first category of the E/I scale. Suppose
 you instead use I for the first category. Then, report the estimated conditional odds ratio and the 95 percent likelihood-ratio confidence interval. Interpret. \\
+Estimated conditional odds ratio $= \dfrac{1}{1.79}= .56$ \\
+95\% likelihood-ratio CI $= (\dfrac{1}{2.74},\dfrac{1}{1.17}) = (.36, 2.74)$
+\\
 
 \textbf{e.} Show steps of a test of whether E/I has an effect of the response,
 controlling for T/F. Indicate whether your test is a Wald or a likelihood-ratio test. \\
+$H_0: \beta_1 = 0, \\
+H_1: \beta_1 \not= 0.$
+Using a likelihood ratio test $= 7.28$, degrees of freedom $= 1$, P-value $= .0007$.
+So, we see that there is strong evidence of an effect.
+\\
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 4.24
@@ -197,11 +250,18 @@ secure the airway (0 = laryngeal mask airway, 1 = tracheal tube). \\
 
 \textbf{a.} Fit a main effects model using these predictors. Interpret parameter 
 estimates. \\
+We get $logit(\pi) = -1.417 + .069D - 1.659T$
+\\
 
 \textbf{b.} Conduct inference about the D effect in (a). \\
+Patients who use a laryngeal mask airway and survived longer surgery are more likely to 
+experience a sore throat.
+\\
 
 \textbf{c.} Fit a model permitting interaction. Report the predictio equation for the 
 effect of D when (i)T = 1, (ii) T = 0. Interpret. \\
+See R Code attempt
+\\
 
 \textbf{d.} Conduct inference about whether you need the interaction term in (c).
 
