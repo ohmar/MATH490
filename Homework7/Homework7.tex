@@ -1,0 +1,254 @@
+\documentclass[paper=letter, fontsize=11pt]{scrartcl} % Letter paper and 11pt font size
+
+\usepackage{amstext, amsmath, amssymb, graphicx}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{San Francisco State University} \\ [25pt]
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge MATH 490 Assignment 7  \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Omar Sandoval}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.19
+%----------------------------------------------------------------------------------------
+\textbf{4.19} A sample of subjects were asked their opinion about current laws 
+legalizing abortion (support, oppose). For the explanatory variables gender (female,
+male), religious affiliation (Protestant, Catholic, Jewish), and political party
+affiliation (Democrat, Republican, Independent), the model for the probability
+$\pi$ of supporting legalized abortion, \\
+
+\begin{center}
+    $\text{logit} (\pi) = \alpha + \beta_h^G + \beta_i^R + \beta_j^P$
+\end{center}
+
+has reported parameter estimates (setting the parameter for the last category
+of a variable equal to 0.0) $\hat{\alpha} = -0.11, \hat{\beta_1^G} = 0.16, 
+\hat{\beta_2^G} = 0.0, \hat{\beta_1^R} = -0.57, \hat{\beta_2^R} = -0.66, 
+\hat{\beta_3^R} = 0.0, \hat{\beta_1^P} = 0.84, \hat{\beta_2^P} = -1.67, 
+\hat{\beta_3^P} = 0.0$ \\
+
+\textbf{a.} Interpret how the odds of supporting legalized abortion depend on gender. \\
+To find the how odds of supporting legalized abortion depend on gender, we need to 
+control religion and political party. Thus, the difference between females and males
+turns out to be $\hat{\beta_1^G} - \hat{\beta_2^G} = 0.16$. \\
+Odds of females supporting legalized abortion are $e^{.16} = 1.17$. So, the odds of 
+females supporting legalized abortion are 1.17 times higher than the odds for a male.
+\\
+
+\textbf{b.} Find the estimated probability of supporting legalized abortion for (i) male
+Catholic Republicans and (ii) female Jewish Democrats. \\
+We use the following equation, $\hat{\pi} = e^{\text{logit}}/1+e^{\text{logit}}$. \\
+(i) $\hat{\pi} = \dfrac{e^{-0.11-0.66-1.67}}{1+e^{-0.11-0.66-1.67}} = .08$ \\
+For male Catholic republicans, probability that they support legalized abortion is 0.08. \\
+(ii) $\hat{\pi} = \dfrac{e^{-0.11+0.16+.84}}{1+e^{-0.11+0.16+.84}} = .71$ \\
+For female Jewish democrats, probability that they support legalized abortion is .71. \\
+\\
+
+\textbf{c.} If we defined parameters such that the first category of a variable has value
+0, then what would $\hat{\beta_2^G}$ equal? Show then how to obtain the odds ratio that
+describes the conditional effect of gender. \\
+The odds ration is invariant under permutation of rows and columns, but sign will have 
+to change. So, $e^{\beta_2^G} = \frac{1}{e^{\beta_1^G}} = e^{-\beta_1^G}$. Thus, 
+$\beta_2^G = -\beta_1^G = -0.16$ \\
+If the first category of a variable had value 0, then $\hat{\beta_2^G} = -.16$. The odds
+ratio would not change. The odds ratio would still be $e^{.16} = 1.17$.
+\\
+
+\textbf{d.} If we defined parameters such that they sum to 0 across the categories of a
+variable, then what would $\hat{\beta_1^G}$ and $\hat{\beta_2^G}$ equal? Show then how
+to obtain the odds ratio that describes the conditional effect of gender.
+\\
+We can find the odds ratio for the conditional effect of gender like so; \\
+$\dfrac{e^{\alpha}e^{\beta_2^G}}{e^{\alpha}e^{\beta_1^G}} = e^{-0.16} = 0.85$
+for Male, Female. \\
+$\dfrac{e^{\alpha}e^{\beta_1^G}}{e^{\alpha}e^{\beta_2^G}} = e^{0.16} = 1.17$
+for Female, Male.
+\\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.21
+%----------------------------------------------------------------------------------------
+\textbf{4.21} In a study designed to evaluate whether an educational program makes
+sexually active adolescents more likely to obtain condoms, adolescents were randomly
+assigned to two experimental groups. The educational program, involving a
+lecture and videotape about transmission of the HIV virus, was provided to one
+group but not the other. In logistic regression models, factors observed to influence
+a teenager to obtain condoms were gender, socioeconomic status, lifetime
+number of partners, and the experimental group. Table 4.17 summarizes study
+results. \\
+
+\textbf{a.} Interpret the odds ratio and the related confidence interval for the effect
+of group. \\
+The odds ratio tells us that the odds of obtaining condoms for the educated group 
+are 4.04 times the odds for the non-educated group.
+\\
+
+\textbf{b.} Find the parameter estimates for the fitted model, using (1, 0) indicator
+variables for the first three predictors. Based on the corresponding confidence
+interval for the log odds ratio, determine the standard error for the
+group effect. \\
+The equation is logit$(\hat{\pi}) = \hat{\alpha} + 1.40i + .32j + 1.76k + 1.17l$
+Here, $i$ is 0 for non-educated and 1 for educated. $j$ is is 0 for females and 1 for
+males. $k$ is 0 for low SES and 1 for high SES. $l$ is the lifetime number of partners.
+\\
+The log odds ratio of 1.40 has CI (0.16, 2.63). The interval goes from $1.40 \pm 1.96(SE)$
+So it's clear that the standard error is 0.63.
+\\
+
+\textbf{c.} Explain why either the estimate of 1.38 for the odds ratio for gender or the
+corresponding confidence interval is incorrect. Show that, if the reported
+interval is correct, then 1.38 is actually the log odds ratio, and the estimated
+odds ratio equals 3.98. \\
+\textit{Not exactly sure what they're asking here.}
+\\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.23
+%----------------------------------------------------------------------------------------
+\textbf{4.23} Table 4.18 shows estimated effects for a fitted logistic regression model 
+with squamous cell esophageal cancer (1 = yes, 0 = no) as the response variable
+Y . Smoking status (S) equals 1 for at least one pack per day and 0 otherwise,
+alcohol consumption (A) equals the average number of alcoholic drinks
+consumed per day, and race (R) equals 1 for blacks and 0 for whites. \\
+
+\textbf{a.} To describe the race-by-smoking interaction, construct the prediction 
+equation when R = 1 and again when R = 0. Find the fitted Y - S conditional odds
+ratio for each case. Similarly, construct the prediction equation when S = 1
+and again when S = 0. Find the fitted Y - R conditional odds ratio for each
+case. Note that, for each association, the coefficient of the cross-product
+term is the difference between the log odds ratios at the two fixed levels for
+the other variable. \\
+
+When $R = 1$, logit$(\hat{\pi}) = (-7.0 + 0.3) + 0.10A + (1.2 + 0.2)S = -6.7 + .10A + 1.4S$
+\\
+The Y - S conditional odds ratio for blacks is $e^{1.4} = 4.0552$. 
+\\
+For $R = 0$, logit$(\hat{\pi}) = (-7.0 + 1.2) + 0.10A + (.30 + 0.2)R = -5.8 + .10A + .5R$
+\\
+The Y - R conditional odds ratio for smokers with consumption of at least one pack per day
+is $e^{0.3} = 1.3499$
+\\
+For $S = 0$, logit$(\hat{\pi}) = -7.0 + 0.10A + .30R$
+\\
+The Y - R odds ratio for people with consumption less than one pack per day is
+$e^{0.3} = 1.3499$
+\\
+
+\textbf{b.} In Table 4.18, explain what the coefficients of R and S represent, for the
+coding as given above. What hypotheses do the P-values refer to for these
+variables? \\
+
+The coefficient R represents the conditional log odds ratio between race and cancer for
+people with consumption that is less than one pack per day. \\
+The coefficient S represents the conditional log odds ratio between gender and cancer 
+for whites. \\
+The P-value < 0.01 for smoking represents the result of the test that the log odds ratio Y - S
+for whites is 0. P-value = 0.02 for race represents the result of the test where the log
+odds ratio between Y - R for smokers where consumption of at least one pack per day is 0.
+
+\textbf{c.} Suppose the model also contained an A × R interaction term, with coefficient
+0.04. In the prediction equation, show that this represents the
+difference between the effect of A for blacks and for whites.
+\\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.24
+%----------------------------------------------------------------------------------------
+\textbf{4.24}
+\begin{center}
+	\textbf{Already completed 4.24 problem in HW 6}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.28
+%----------------------------------------------------------------------------------------
+\textbf{4.28} For recent General Social Survey data, a prediction equation relating Y =
+whether attended college (1 = yes) to \textit{x} = family income (thousands of dollars,
+using scores for grouped categories), \textit{m} = whether mother attended
+college (1 = yes, 0 = no), \textit{f} = whether father attended college (1 = yes,
+0 = no), was logit[$\hat{P}(Y = 1)] = −1.90 + 0.02x + 0.82m + 1.33f$. To summarize
+the cumulative effect of the predictors, report the range of $\hat{\pi}$ values
+between their lowest levels $(x = 0.5, m = 0, f = 0)$ and their highest levels
+$(x = 130, m = 1, f = 1)$.
+\\
+$\hat{\pi}$ increases from $\dfrac{e^{-1.89}}{1+e^{-1.89}} = .13 \text{ to } 0.95$
+What can we say from this???
+\\
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4.37
+%----------------------------------------------------------------------------------------
+\textbf{4.37} For data from Florida on Y = whether someone convicted of multiple murders
+receives the death penalty (1 = yes, 0 = no), the prediction equation is
+logit($\hat{\pi}$) $= −2.06 + .87d − 2.40v$, where $d$ and $v$ are defendant's race and
+victims' race (1 = black, 0 = white). The following are true-false questions
+based on the prediction equation. \\
+
+\textbf{a.} The estimated probability of the death penalty is lowest when the defendant
+is white and victims are black. \\
+
+True.
+$\pi(d = 0, v = 1) = \dfrac{e^{-2.06-2.40}}{1+e^{-2.06-2.40}} = 0.01143$
+\\
+\textbf{b.} Controlling for victims' race, the estimated odds of the death penalty for
+white defendants equal 0.87 times the estimated odds for black defendants.
+If we instead let $d = 1$ for white defendants and 0 for black defendants, the
+estimated coefficient of $d$ would be $1/0.87 = 1.15$ instead of $0.87$. \\
+
+False. \\
+If we control victims race, the estimated odds of death penalty for whites is 
+$e^{0.87}$ times the estimated odds for black defendants.
+\\
+
+\textbf{c.} The lack of an interaction term means that the estimated odds ratio between
+the death penalty outcome and defendant's race is the same for each category
+of victims' race. \\
+
+False. \\
+We only know that new odds ratio will equal the reciprocal of the old odds ratio. As we 
+saw in problem 4.19(c).
+\\
+
+\textbf{d.} The intercept term $−2.06$ is the estimated probability of the death penalty
+when the defendant and victims were white (i.e., $d = v = 0$). \\
+
+False. \\
+Probability MUST be between 0 and 1 and thus cannot be -2.06.
+
+\textbf{e.} If there were 500 cases with white victims and defendants, then the model
+fitted count (i.e., estimated expected frequency) for the number who receive
+the death penalty equals $500e^{−2.06}/(1 + e^{−2.06})$. \\
+
+True. \\
+
+\end{document}
